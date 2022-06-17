@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Comments from "../components/Comments";
 import Addcomments from "../components/Addcomments";
-import { AddUser } from "/Users/bugrabeyduz/Desktop/Clarusway/newreactproject6/my-app/src/auth/Functions.js";
+import { AddUser } from "../auth/Functions";
 import Mailer from "../components/Mailer";
 
 
