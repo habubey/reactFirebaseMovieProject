@@ -2,13 +2,21 @@ import React from "react";
 import { Link,useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import Comments from "../components/Comments";
+import Addcomments from "../components/Addcomments";
+import { AddUser } from "/Users/bugrabeyduz/Desktop/Clarusway/newreactproject6/my-app/src/auth/Functions.js";
+import Mailer from "../components/Mailer";
+
+
+
+
+const initialValues = {username: "", comment: ""};
 
 const Filmdetay = () => {
   const [movieDetails, setMovieDetails] = useState();
@@ -20,6 +28,20 @@ const Filmdetay = () => {
   const videoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`;
   const baseImageUrl = "https://image.tmdb.org/t/p/w1280";
   const IMG_API = "https://image.tmdb.org/t/p/w1280";
+
+
+  const [info, setInfo] = useState(initialValues)
+  
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log(info, id);
+    AddUser({ ...info, id });
+    
+  }
+
+
+
+
 
   useEffect(() => {
     axios
@@ -33,10 +55,11 @@ const Filmdetay = () => {
   }, [movieDetailBaseUrl, videoUrl]);
 
   return (
-    <div >
+    <div  >
     
-    <Card sx={{ maxWidth: 400 }}>
+    <Card style={{ padding: "20px", margin: "20px"  ,justifyContent: "center", display: "flex" }} >
       <CardMedia
+       sx={{ maxWidth: 400 }}
         component="img"
         alt="poster"
      
@@ -59,11 +82,7 @@ const Filmdetay = () => {
         {movieDetails?.movieDetails?.vote_count}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Share via Email</Button>
-        <Button size="small">Add To Favorite</Button>
-        <Button size="small">Make a Comment</Button>
-      </CardActions>
+   
      
       <Link to={-1} size="small">Go Back</Link>
       
@@ -73,6 +92,14 @@ const Filmdetay = () => {
     </Card>
 
 
+    <br /><br />
+<Addcomments info={info} setInfo={setInfo} handleFormSubmit={handleFormSubmit}/>
+<br /><br /><br /><br /><br /><br /><br />
+
+<Comments id={id} />
+<br /><br /><br /><br /><br /><br /><br />
+<Mailer/>
+<br /><br /><br /><br /><br /><br /><br />
     </div>
     
     )

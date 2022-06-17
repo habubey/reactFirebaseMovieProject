@@ -36,15 +36,16 @@ const Cards = ({ title, poster_path, overview, id, vote_average  }) => {
   };
   return (
     <Card
-      style={{ width: "400px" }}
+      style={{ width: "400px", height: "600px", margin: "20px" }}
       
     >
       <CardMedia onClick={() =>
     currentUser ? navigate("/detay/" + id) : alert("Please login")
+
       }
         component="img"
         alt="movie poster"
-        height="540"
+        height="350"
         style={{ cursor: "pointer" }}
         image={IMG_API + poster_path}
       />

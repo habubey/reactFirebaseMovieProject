@@ -9,8 +9,9 @@ import Listeleme from "../pages/Listeleme";
 import Filmdetay from "../pages/Filmdetay";
 
 
-
 const AppRouter = () => {
+
+
   return (
    <Router>
     <Navbar />
@@ -20,7 +21,7 @@ const AppRouter = () => {
     <Route path="/login" element={<Login />} />
     <Route path="/register" element={<Register />} />
     <Route path="/listeleme" element={<Listeleme />} />
-    <Route path="/detay/:id" element={<Filmdetay />} />
+    <Route path="/detay/:id" element={<Filmdetay />}  />
     </Routes>
 
    </Router>

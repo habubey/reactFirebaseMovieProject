@@ -22,7 +22,7 @@ const Listeleme = () => {
   };
 
   return (
-    <div>
+    <div style={{ padding: "20px", alignItems: "center", display: "flex", flexWrap:"wrap",  }}>
       {movies.map((movie) => (
         <Cards key={movie.id} {...movie} />
       ))}
