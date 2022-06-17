@@ -10,8 +10,8 @@ import {
 } from "@mui/material";
 
 import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
-import { useState, useEffect } from "react";
+
+
 import { useFetch, DeleteUser } from "../auth/Functions";
 import "../components/Comments.css";
 const Comments = ({ id }) => {
